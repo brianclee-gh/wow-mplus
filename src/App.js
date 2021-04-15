@@ -11,15 +11,12 @@ import Resources from './components/Resources';
 
 let Home = ({ children }) => (
   <div>
-    <hr />
-    Hi
     {children}
   </div>
 )
 
 let Dungeons = ({ children }) => (
   <div>
-    <hr />
     {children}
  </div>
 )

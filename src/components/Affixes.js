@@ -1,14 +1,23 @@
 import axios, { CancelToken } from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import images from '../assets/imageLoader';
+import affixRotation from '../assets/affixRotation';
 
 function Affixes() {
 
+    const [week, setWeek] = useState();
     const [affixes, setAffixes] = useState([]);
     const componentIsMounted = useRef(true);
 
     const baseUrl = 'https://raider.io/api/v1';
     const region = 'us';
+
+    const arrayEquals = (a, b) => {
+        return Array.isArray(a) &&
+            Array.isArray(b) &&
+            a.length === b.length &&
+            a.every((val, i) => val === b[i])
+    }
 
     useEffect(() => {
         return () => {
@@ -28,9 +37,18 @@ function Affixes() {
                 );
 
                 const value = asyncResponse.data;
+                const currentAffixID = value.affix_details.map(affix => affix.id);
+
+                // for (let i = 0; i < 12; i++) {
+                //     if (arrayEquals(affixRotation[i], currentAffixID)) {
+                //         setWeek(i);
+                //         return;
+                //     }
+                // }
 
                 if (componentIsMounted.current) {
                     setAffixes(value.affix_details);
+
                 }
 
             } catch (err) {
@@ -63,8 +81,10 @@ function Affixes() {
             <a href={affix.wowhead_url} className="affix-link">
                 <h2 className="affix-title"> {affix.name} </h2>
             </a>
-            <img className='affix-img' src={getImageUrl(affix.name)} alt={affix.name} />
-            <p className="affix-description">{affix.description}</p>
+            <div className='affix-container'>
+                <img className='affix-img' src={getImageUrl(affix.name)} alt={affix.name} />
+                <p className="affix-description">{affix.description}</p>
+            </div>
         </li>
     )
 

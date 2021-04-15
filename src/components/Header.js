@@ -22,6 +22,10 @@ function Header({ theme, setTheme, setDungeon }) {
         setShowMenu(!showMenu);
     };
 
+    const closeMenu = () => {
+        setShowMenu(false);
+    }
+
     return (
         <div id='header'>
             <Button onClick={() => toggleTheme()}>
@@ -31,7 +35,7 @@ function Header({ theme, setTheme, setDungeon }) {
             </Button>
             <h1>The Great Vault</h1>
             <nav id='nav'>
-                <Link to="/">Home</Link> |{" "}
+                <Link to="/" onClick={() => closeMenu()}>Home</Link> |{" "}
                 {/* <Link to="dungeons"> */}
 
                     <div id='dropdown-dungeon'>
@@ -56,8 +60,8 @@ function Header({ theme, setTheme, setDungeon }) {
                         }
                     </div>
                 |{" "}
-                <Link to="items">Useful Items</Link> |{" "}
-                <Link to="resources">Resources</Link>
+                <Link to="items" onClick={() => closeMenu()}>Useful Items</Link> |{" "}
+                <Link to="resources" onClick={() => closeMenu()}>Resources</Link>
             </nav>
 
         </div>

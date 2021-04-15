@@ -22,7 +22,6 @@ function Items() {
 
     return (
         <div>
-            <hr />
             <div id='engineering-items'>
                 <div id='belt-tinker'>
                     Belt Tinkers
