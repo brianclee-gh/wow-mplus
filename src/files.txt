@@ -1,0 +1,19 @@
+Had to change .babelrc to
+
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    "plugins": ["@babel/plugin-transform-runtime"]
+}
+
+replaced babel-preset-react w/ @babel/preset-react
+
+
+npm install @material-ui/core
+npm install axios
+npm i --save-dev @babel/plugin-transform-runtime
+npm install --save-dev css-loader
+
+npm start
