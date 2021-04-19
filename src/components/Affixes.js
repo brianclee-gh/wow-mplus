@@ -12,6 +12,18 @@ function Affixes() {
     const baseUrl = 'https://raider.io/api/v1';
     const region = 'us';
 
+    const getCurrentTuesday = () => {
+        let current = new Date();
+        let first = (current.getDate() - current.getDay()) + 2;
+
+        let tuesday = new Date(current.setDate(first)).toDateString();
+        let newTues = tuesday.split(' ')
+        newTues.shift();
+        newTues = newTues.join(' ');
+
+        return newTues;
+    }
+
     const arrayEquals = (a, b) => {
         return Array.isArray(a) &&
             Array.isArray(b) &&
@@ -91,6 +103,7 @@ function Affixes() {
     return (
         <div className="affix-display">
             <h1>This Week's Affixes</h1>
+            <h4 className="current-tuesday"> {getCurrentTuesday()} </h4>
             { affixes.length > 0 ?
                 <div id='affixes'>
                     <ul> {displayAffixes} </ul>

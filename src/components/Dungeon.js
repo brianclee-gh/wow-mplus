@@ -20,8 +20,12 @@ function Dungeon({ currentDungeon }) {
             {dungeon &&
                 <div id='dungeon-display'>
                     {/* dungeon info */}
+                    <div id='wallpaper-container'>
+                        <img id='dungeon-wallpaper' src={dungeon.wallpaper} alt='dungeon wallpaper' />
+                        <div id='dungeon-title'>{dungeon.title.toUpperCase()}</div>
+                        <div id='dungeon-location'>{dungeon.location.toUpperCase()}</div>
+                    </div>
                     <div id='dungeon-info'>
-                        <h2>{dungeon.title}</h2>
                         <p>{dungeon.description}</p>
                         <div id='lust-timing'>
                             <h3>Lust Timing</h3>

@@ -1,6 +1,7 @@
 const de_other_side = {
     'title': 'De Other Side',
-    'description': 'Located in Ardenweald, De Other Side is the pocket dimension of Bwonsamdi, the loa of death. ',
+    location: 'Ardenweald',
+    'description': 'De Other Side is the pocket dimension of Bwonsamdi, the loa of death. ',
     'lust_timing': [
         'First pull (G1, G2)',
         'Hakkar the Soulflayer',
@@ -26,7 +27,8 @@ const de_other_side = {
     },
     'tips': {
         warrior: 'Prot Warriors can Spell Reflect the Soulcrusher cast on Mueh\'zala'
-    }
+    },
+    'wallpaper': '../../../public/images/dungeons/de_other_side.png',
 
 };
 

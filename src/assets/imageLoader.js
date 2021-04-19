@@ -1,63 +1,63 @@
 const images = [
     {
-        src: '../public/images/Bolstering.jpg',
+        src: '../public/images/affixes/Bolstering.jpg',
         title: 'Bolstering'
     },
     {
-        src: '../public/images/Bursting.jpg',
+        src: '../public/images/affixes/Bursting.jpg',
         title: 'Bursting'
     },
     {
-        src: '../public/images/Explosive.jpg',
+        src: '../public/images/affixes/Explosive.jpg',
         title: 'Explosive'
     },
     {
-        src: '../public/images/Fortified.jpg',
+        src: '../public/images/affixes/Fortified.jpg',
         title: 'Fortified'
     },
     {
-        src: '../public/images/Grievous.jpg',
+        src: '../public/images/affixes/Grievous.jpg',
         title: 'Grievous'
     },
     {
-        src: '../public/images/Inspiring.jpg',
+        src: '../public/images/affixes/Inspiring.jpg',
         title: 'Inspiring'
     },
     {
-        src: '../public/images/Necrotic.jpg',
+        src: '../public/images/affixes/Necrotic.jpg',
         title: 'Necrotic'
     },
     {
-        src: '../public/images/Prideful.jpg',
+        src: '../public/images/affixes/Prideful.jpg',
         // src: 'https://wow.zamimg.com/images/wow/icons/large/spell_animarevendreth_buff.jpg',
         title: 'Prideful'
     },
     {
-        src: '../public/images/Quaking.jpg',
+        src: '../public/images/affixes/Quaking.jpg',
         title: 'Quaking'
     },
     {
-        src: '../public/images/Raging.jpg',
+        src: '../public/images/affixes/Raging.jpg',
         title: 'Raging'
     },
     {
-        src: '../public/images/Sanguine.jpg',
+        src: '../public/images/affixes/Sanguine.jpg',
         title: 'Sanguine'
     },
     {
-        src: '../public/images/Spiteful.jpg',
+        src: '../public/images/affixes/Spiteful.jpg',
         title: 'Spiteful'
     },
     {
-        src: '../public/images/Storming.jpg',
+        src: '../public/images/affixes/Storming.jpg',
         title: 'Storming'
     },
     {
-        src: '../public/images/Tyrannical.jpg',
+        src: '../public/images/affixes/Tyrannical.jpg',
         title: 'Tyrannical'
     },
     {
-        src: '../public/images/Volcanic.jpg',
+        src: '../public/images/affixes/Volcanic.jpg',
         title: 'Volcanic'
     },
 
