@@ -1,5 +1,6 @@
 const halls_of_atonement = {
   'title': 'Halls of Atonement',
+  location: 'Revendreth',
   'description': 'Located in Revendreth',
   'lust_timing': [
     'First pull',

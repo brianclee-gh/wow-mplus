@@ -1,5 +1,6 @@
 const the_necrotic_wake = {
   'title': 'The Necrotic Wake',
+  location: 'Bastion',
   'description': 'Located in Bastion',
   'lust_timing': [
     '1st pack on Fortified weeks or Blightborne on Tyrannical',

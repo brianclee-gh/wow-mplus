@@ -15,15 +15,23 @@ function Dungeon({ currentDungeon }) {
         mdtFrame.classList.toggle('hidden');
     }
 
+    const wallpaperUrl = `../../../public/images/dungeons/`
+        + dungeon.title.split(' ').join('_').toLowerCase()
+        + '.png';
+        // 2560 x 750
+
     return (
         <>
             {dungeon &&
                 <div id='dungeon-display'>
                     {/* dungeon info */}
                     <div id='wallpaper-container'>
-                        <img id='dungeon-wallpaper' src={dungeon.wallpaper} alt='dungeon wallpaper' />
-                        <div id='dungeon-title'>{dungeon.title.toUpperCase()}</div>
-                        <div id='dungeon-location'>{dungeon.location.toUpperCase()}</div>
+                        {/* <img id='dungeon-wallpaper' src={dungeon.wallpaper} alt='dungeon wallpaper' /> */}
+                        <img id='dungeon-wallpaper' src={wallpaperUrl} alt='dungeon wallpaper' />
+                        <div id='dungeon-title'>
+                            <h1>{dungeon.title.toUpperCase()}</h1>
+                            <h4>{dungeon.location.toUpperCase()}</h4>
+                        </div>
                     </div>
                     <div id='dungeon-info'>
                         <p>{dungeon.description}</p>

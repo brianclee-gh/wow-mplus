@@ -1,5 +1,6 @@
 const spires_of_ascension = {
   'title': 'Spires of Ascension',
+  location: 'Bastion',
   'description': 'Located in Bastion',
   'lust_timing': [
     '1st pull on Fortified weeks or Kin-Tara on Tyrannical',

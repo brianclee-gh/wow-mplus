@@ -1,5 +1,6 @@
 const sanguine_depths = {
   'title': 'Sanguine Depths',
+  location: 'Revendreth',
   'description': 'Located in Revendreth',
   'lust_timing': [
     'Kryxis the Voracious',

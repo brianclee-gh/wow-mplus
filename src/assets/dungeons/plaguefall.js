@@ -1,5 +1,6 @@
 const plaguefall = {
   'title': 'Plaguefall',
+  location: 'Maldraxxus',
   'description': 'Located in Maldraxxus',
   'lust_timing': [
     'Globgrog',

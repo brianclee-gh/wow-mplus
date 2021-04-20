@@ -1,5 +1,6 @@
 const mists_of_tirna_scithe = {
   'title': 'Mists of Tirna Scithe',
+  location: 'Ardenweald',
   'description': 'Located in Ardenweald',
   'lust_timing': [
     'First pull on Forified weeks, Ingra Maloch after phasin on Tyran',

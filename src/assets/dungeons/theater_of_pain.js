@@ -1,5 +1,6 @@
 const theater_of_pain = {
   'title': 'Theater of Pain',
+  location: 'Maldraxxus',
   'description': 'Located in Maldraxxus',
   'lust_timing': [
     'An Affront of Challengers',
