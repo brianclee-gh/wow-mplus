@@ -7,7 +7,7 @@ function Dungeon({ currentDungeon }) {
     const dungeon = dungeon_directory[currentDungeon];
 
     const lustTiming = dungeon.lust_timing.map((ele, i) =>
-        <li key={i}>{i + 1}. {ele}</li>
+        <li key={i}> {ele}</li>
     )
 
     const showMDT = () => {
@@ -34,7 +34,7 @@ function Dungeon({ currentDungeon }) {
                         </div>
                     </div>
                     <div id='dungeon-info'>
-                        <p>{dungeon.description}</p>
+                        {/* <p>{dungeon.description}</p> */}
                         <div id='lust-timing'>
                             <h3>Lust Timing</h3>
                             <ul>{lustTiming}</ul>
@@ -51,7 +51,6 @@ function Dungeon({ currentDungeon }) {
                     {/* mdt */}
                     <div id='mdt'>
                         <h3>MDT Route</h3>
-                        {/* <button onClick={showMDT}>Click to show route</button> */}
                         <Button onClick={showMDT}>Click to show route</Button>
                         <iframe title='mdt' id='mdt-frame' className='route hidden' src={dungeon.mdt} style={dungeon.mdtstyle}></iframe>
                     </div>

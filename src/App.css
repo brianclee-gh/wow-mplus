@@ -14,7 +14,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
+menu, nav, output, ruby, section, summary,ç
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
@@ -47,7 +47,11 @@ table {
 	border-spacing: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Nunito&family=Poppins&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Nunito&family=Poppins&family=Work+Sans&family=Roboto&display=swap');
+
+body {
+	background-color: #e0e0e0;
+}
 
 /* Header  */
 
@@ -56,10 +60,17 @@ table {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-	border-bottom: 1px solid darkgrey;
 	height: 4rem;
-	background-color: rgba(30, 13, 30, 0.08);
+	/* background-color: rgba(30, 13, 30, 0.08); */
+	background-color: #424242;
 	padding: 0 1.5rem;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-size: 20px;
+}
+
+#header span {
+	color: red;
 }
 
 #header nav {
@@ -68,6 +79,24 @@ table {
 
 #header nav a, #header nav div {
   margin: 0 0.4rem;
+	text-decoration: none;
+	/* color: black; */
+	color: white;
+	font-size: 14px;
+}
+
+#header nav a:hover {
+	text-decoration: underline;
+	opacity: 0.8;
+}
+
+#burger-menu {
+	display: none;
+	cursor: pointer;
+}
+
+#burger-menu:hover {
+	color: red;
 }
 
 /* Dungeon Menu */
@@ -77,11 +106,23 @@ table {
 }
 
 #dropdown-dungeon:hover #dungeon-menu {
-	background-color: red;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 
+}
+
+#dungeon-menu button {
+	background-color: green;
+	border: none;
+	padding: 0.5rem 0.75rem;
+	color: white;
+	cursor: pointer;
+	opacity: 0.9
+}
+
+#dungeon-menu button:hover {
+	opacity: 1.0;
 }
 
 
@@ -94,7 +135,8 @@ table {
 .affix-display h1 {
 	text-align: center;
 	font-weight: bold;
-	font-family: 'Work Sans', sans-serif;
+	/* font-family: 'Work Sans', sans-serif; */
+	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	margin-bottom: 0.4rem;
 }
@@ -102,7 +144,7 @@ table {
 .affix-display h4 {
 	text-align: center;
 	font-weight: bold;
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 }
 
@@ -127,7 +169,7 @@ table {
 	place-items: center;
 	/* border: 1px solid black; */
 	padding: 1rem 0.5rem;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .affix-card a {
@@ -141,21 +183,11 @@ table {
 }
 
 .affix-card img:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
-.affix-container:hover .affix-description {
-	display: block;
-	background-color: #ddd;
-	border-radius: 5%;
-	position: absolute;
-	width: 150px;
-	padding: 1rem;
-}
-
-.affix-title {
-	font-size: 16px;
-	/* font-weight: bold; */
+.affix-container {
+	position: relative;
 }
 
 .affix-description {
@@ -166,6 +198,26 @@ table {
 	position: absolute;
 }
 
+.affix-container:hover .affix-description {
+	display: block;
+	background-color: #fff;
+	border-radius: 5%;
+	position: absolute;
+	width: 150px;
+	padding: 1rem;
+	right: 0;
+}
+
+.affix-container:hover .Tyrannical,
+.affix-container:hover .Fortified {
+	left: 0;
+}
+
+.affix-title {
+	font-size: 16px;
+	/* font-weight: bold; */
+}
+
 /* Dungeon */
 
 #wallpaper-container {
@@ -173,6 +225,7 @@ table {
 	text-align: center;
 	color: white;
 	z-index: -1;
+	background-color: #e0e0e0;
 }
 
 #dungeon-title {
@@ -197,8 +250,20 @@ table {
 }
 
 #dungeon-info {
-	/* background-color: black;
-	color: white */
+	display: flex;
+	flex-direction: column;
+}
+
+#lust-timing {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	align-items: center;
+}
+
+#lust-timing ul {
+	list-style: none;
+	border: 1px solid red;
 }
 
 /* MDT */
@@ -207,3 +272,10 @@ table {
   display: none;
 }
 
+
+@media only screen and (max-width: 675px) {
+	#dungeon-title h4 { display: none }
+	#dungeon-title h1 { font-size: 26px }
+	#header nav { display: none }
+	#burger-menu { display: block }
+}

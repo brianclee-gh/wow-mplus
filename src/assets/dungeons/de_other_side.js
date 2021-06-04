@@ -5,8 +5,8 @@ const de_other_side = {
     'lust_timing': [
         'First pull (G1, G2)',
         'Hakkar the Soulflayer',
-        'The Manastorms (Millie)',
-        'Dealer Xy\'exa or before Shatter Reality on Mueh\'zala'
+        'The Manastorms, P2 (Millie)',
+        'Dealer Xy\'exa'
         ],
     'timer': 43,
     'covenant': 'Night Fae',

@@ -3,8 +3,8 @@ const mists_of_tirna_scithe = {
   location: 'Ardenweald',
   'description': 'Located in Ardenweald',
   'lust_timing': [
-    'First pull on Forified weeks, Ingra Maloch after phasin on Tyran',
-    'Whenever it comes up in the maze or Mistcaller',
+    'Fortified: first pull; Tyrannical: Ingra Maloch',
+    'Off CD in the maze or Mistcaller',
     'Tred\'ova',
   ],
   'timer': 30,

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { Router, Link } from '@reach/router';
 import Button from '@material-ui/core/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function Header({ theme, setTheme, setDungeon }) {
 
@@ -17,16 +19,17 @@ function Header({ theme, setTheme, setDungeon }) {
 
     return (
         <div id='header'>
-            <Button onClick={() => toggleTheme()}>
+            <div>THE <span>GREAT</span> VAULT</div>
+            {/* <Button onClick={() => toggleTheme()}>
                 {theme === 'light' ?
                     'Dark theme' : 'Light theme'
                 }
-            </Button>
+            </Button> */}
+            <div id="burger-menu"><FontAwesomeIcon icon={faBars} /></div>
             <nav id='nav'>
-                <Link to="/">Home</Link> |{" "}
+                <Link to="/">HOME</Link> {""}
                     <div id='dropdown-dungeon'>
-                        <button id='dropdown-btn' >Dungeons</button>
-                        <Link to="/dungeons">
+                        <Link to="/dungeons"> DUNGEONS
                             <div id='dungeon-menu' className='dungeon-menu'>
                                 <button onClick={() => changeDungeon('dos')}>De Other Side</button>
                                 <button onClick={() => changeDungeon('hoa')}>Halls of Atonement</button>
@@ -39,9 +42,9 @@ function Header({ theme, setTheme, setDungeon }) {
                             </div>
                         </Link>
                     </div>
-                |{" "}
-                <Link to="items">Useful Items</Link> |{" "}
-                <Link to="resources">Resources</Link>
+                {" "}
+                <Link to="items">USEFUL ITEMS</Link> {" "}
+                <Link to="resources">RESOURCES</Link>
             </nav>
 
         </div>

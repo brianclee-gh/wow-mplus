@@ -30,7 +30,7 @@ function Resources() {
 
   return (
     <div>
-      <hr />
+      {/* <hr /> */}
       <div id='addons'>
         Addons <br />
         ------

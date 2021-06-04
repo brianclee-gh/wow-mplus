@@ -12,9 +12,17 @@ function Affixes() {
     const baseUrl = 'https://raider.io/api/v1';
     const region = 'us';
 
+    const setTuesday = () => {
+        let d = new Date()
+        if (d.getDay() === 0) { return d.getDate() -5 }
+        if (d.getDay() === 1) { return d.getDate() -4 }
+        return (d.getDate() - d.getDay()) + 2;
+    }
+
     const getCurrentTuesday = () => {
         let current = new Date();
-        let first = (current.getDate() - current.getDay()) + 2;
+        // let first = (current.getDate() - current.getDay()) + 2;
+        let first = setTuesday();
 
         let tuesday = new Date(current.setDate(first)).toDateString();
         let newTues = tuesday.split(' ')
@@ -50,13 +58,6 @@ function Affixes() {
 
                 const value = asyncResponse.data;
                 const currentAffixID = value.affix_details.map(affix => affix.id);
-
-                // for (let i = 0; i < 12; i++) {
-                //     if (arrayEquals(affixRotation[i], currentAffixID)) {
-                //         setWeek(i);
-                //         return;
-                //     }
-                // }
 
                 if (componentIsMounted.current) {
                     setAffixes(value.affix_details);
@@ -95,7 +96,7 @@ function Affixes() {
             </a>
             <div className='affix-container'>
                 <img className='affix-img' src={getImageUrl(affix.name)} alt={affix.name} />
-                <p className="affix-description">{affix.description}</p>
+                <p className={affix.name + ' affix-description'}>{affix.description}</p>
             </div>
         </li>
     )
