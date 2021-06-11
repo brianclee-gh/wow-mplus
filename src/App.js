@@ -30,7 +30,7 @@ let Dungeons = ({ children }) => (
 
 function App() {
 
-  const [theme, setTheme] = useState('light');
+  // const [theme, setTheme] = useState('light');
   const [dungeon, setDungeon] = useState('dos');
 
   useEffect(() => {
@@ -40,8 +40,6 @@ function App() {
   return (
     <>
       <Header
-        theme={theme}
-        setTheme={setTheme}
         setDungeon={setDungeon}
       />
       <Router>

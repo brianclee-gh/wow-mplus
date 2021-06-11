@@ -4,10 +4,11 @@ import addons from '../assets/sources/addons';
 function Resources() {
 
   const addonCard = (cat) => cat.map((item, index) =>
-    <div key={index} className='addon-card'>
+    <div key={index} className='card'>
       <a href={item.url}>{item.name}</a>
       <p className='addon-description'>{item.description}</p>
-    </div>)
+    </div>
+    )
 
   const addonCards = addonCard(addons.filter((addon) => addon.type === 'addon'));
   const weakauraCards = addonCard(addons.filter((addon) => addon.type === 'weakaura'));
@@ -29,16 +30,21 @@ function Resources() {
   // const potions = itemCard(alchemy.filter((item) => item.category === 'Potion'));
 
   return (
-    <div>
-      {/* <hr /> */}
-      <div id='addons'>
-        Addons <br />
-        ------
+    <div className='section'>
+      <div className='section-header'>
+        <h1>Resources</h1>
+        <p>It's important to have a functional, clean UI that displays the most useful and relevant information.
+          Take note of these handy Addons and WeakAuras listed below. Consider finding and tweaking some
+          class/spec specific WeakAuras.
+        </p>
+      </div>
+
+      <div id='addons' className='resources first'>
+        <h2>Addons</h2>
         {addonCards}
       </div>
-      <div id='weakauras'>
-        Weak Auras <br />
-        ------
+      <div id='weakauras' className='resources second'>
+      <h2>WeakAuras</h2>
         {weakauraCards}
       </div>
     </div>

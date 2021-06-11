@@ -10,7 +10,9 @@ const de_other_side = {
         ],
     'timer': 43,
     'covenant': 'Night Fae',
-    'covenant_ability': 'Members of the Night Fae covenant can activate Haunted Urns located around the dungeon to stun enemy forces within 30 yds for 10 seconds.',
+    'covenant_ability': `Members of the Night Fae covenant can activate Haunted Urns
+    located around the dungeon to stun enemy forces within 30 yds for 10 seconds.
+    Use this WeakAura (https://wago.io/Io1VQOMBb) to help you time it`,
     'bosses': {
         'Hakkar the Soulflayer': 'asdf',
         'The Manastorms': 'asdf',

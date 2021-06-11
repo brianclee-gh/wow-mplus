@@ -1,53 +1,72 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import { Router, Link } from '@reach/router';
-import Button from '@material-ui/core/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useRef } from 'react';
+// import { render } from 'react-dom';
+import { Router, Link } from "@reach/router";
+import Menu from './helpers/Menu'
+import Burger from './helpers/Burger'
+import { useOnClickOutside } from './helpers/Hooks'
 
-function Header({ theme, setTheme, setDungeon }) {
+function Header({ setDungeon }) {
+
+    const [openMenu, setOpenMenu] = useState(false);
+    const [dungeonMenu, setDungeonMenu] = useState(false);
+
+    const node = useRef();
+    useOnClickOutside(node, () => setOpenMenu(false));
 
     const changeDungeon = (dungeon) => {
         setDungeon(dungeon);
+        setDungeonMenu(false);
     };
 
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setTheme('dark')
-        } else setTheme('light');
+    const showMobileMenu = () => {
+        setShowMenu(!showMenu);
     };
 
     return (
-        <div id='header'>
-            <div>THE <span>GREAT</span> VAULT</div>
-            {/* <Button onClick={() => toggleTheme()}>
-                {theme === 'light' ?
-                    'Dark theme' : 'Light theme'
-                }
-            </Button> */}
-            <div id="burger-menu"><FontAwesomeIcon icon={faBars} /></div>
-            <nav id='nav'>
-                <Link to="/">HOME</Link> {""}
-                    <div id='dropdown-dungeon'>
-                        <Link to="/dungeons"> DUNGEONS
-                            <div id='dungeon-menu' className='dungeon-menu'>
-                                <button onClick={() => changeDungeon('dos')}>De Other Side</button>
-                                <button onClick={() => changeDungeon('hoa')}>Halls of Atonement</button>
-                                <button onClick={() => changeDungeon('mots')}>Mists of Tirna Scithe</button>
-                                <button onClick={() => changeDungeon('pf')}>Plaguefall</button>
-                                <button onClick={() => changeDungeon('sd')}>Sanguine Depths</button>
-                                <button onClick={() => changeDungeon('soa')}>Spires of Ascension</button>
-                                <button onClick={() => changeDungeon('top')}>Theater of Pain</button>
-                                <button onClick={() => changeDungeon('tnw')}>The Necrotic Wake</button>
-                            </div>
-                        </Link>
-                    </div>
-                {" "}
-                <Link to="items">USEFUL ITEMS</Link> {" "}
-                <Link to="resources">RESOURCES</Link>
-            </nav>
+        <>
+            <div id='header' ref={node}>
+                <nav
+                    id="mobile-menu"
+                    style={ openMenu ?
+                        { transform: 'translateX(0)' } :
+                        { transform: 'translateX(-100%)'}
+                    }
+                >
+                    <Menu
+                        openMenu={openMenu}
+                        // setOpenMenu={setOpenMenu}
+                        setDungeonMenu={setDungeonMenu}
+                        setDungeon={setDungeon}
+                    />
+                </nav>
+                <Burger
+                    openMenu={openMenu}
+                    setOpenMenu={setOpenMenu}
+                />
+                <nav id='nav'>
+                    <Menu
+                        dungeonMenu={dungeonMenu}
+                        setDungeonMenu={setDungeonMenu}
+                    />
+                </nav>
+                <div>THE <span>GREAT</span> VAULT</div>
 
-        </div>
+            </div>
+            { dungeonMenu &&
+            <Link to='/dungeons'>
+                <div className='dungeon-menu' className='dungeon-menu'>
+                    <div onClick={() => changeDungeon('dos')}>De Other Side</div>
+                    <div onClick={() => changeDungeon('hoa')}>Halls of Atonement</div>
+                    <div onClick={() => changeDungeon('mots')}>Mists of Tirna Scithe</div>
+                    <div onClick={() => changeDungeon('pf')}>Plaguefall</div>
+                    <div onClick={() => changeDungeon('sd')}>Sanguine Depths</div>
+                    <div onClick={() => changeDungeon('soa')}>Spires of Ascension</div>
+                    <div onClick={() => changeDungeon('top')}>Theater of Pain</div>
+                    <div onClick={() => changeDungeon('tnw')}>The Necrotic Wake</div>
+                </div>
+            </Link>
+            }
+        </>
     )
 }
 

@@ -2,11 +2,14 @@ import axios, { CancelToken } from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import images from '../assets/imageLoader';
 import affixRotation from '../assets/affixRotation';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 
 function Affixes() {
 
     const [week, setWeek] = useState();
     const [affixes, setAffixes] = useState([]);
+    const [affixIDs, setAffixIDs] = useState([]);
     const componentIsMounted = useRef(true);
 
     const baseUrl = 'https://raider.io/api/v1';
@@ -21,7 +24,6 @@ function Affixes() {
 
     const getCurrentTuesday = () => {
         let current = new Date();
-        // let first = (current.getDate() - current.getDay()) + 2;
         let first = setTuesday();
 
         let tuesday = new Date(current.setDate(first)).toDateString();
@@ -58,6 +60,7 @@ function Affixes() {
 
                 const value = asyncResponse.data;
                 const currentAffixID = value.affix_details.map(affix => affix.id);
+                setAffixIDs(currentAffixID);
 
                 if (componentIsMounted.current) {
                     setAffixes(value.affix_details);
@@ -89,14 +92,32 @@ function Affixes() {
         return imgUrl[0].src;
     }
 
+
+
+    const getNextAffixes = () => {
+
+        let currentWeek;
+        affixRotation.filter((affix, i) => {
+            if (arrayEquals(affix, affixIDs)) {
+                currentWeek = i;
+            }
+        })
+
+        console.log(affixRotation[currentWeek + 1])
+    };
+
     const displayAffixes = affixes.map((affix) =>
         <li key={affix.id} className="affix-card">
             <a href={affix.wowhead_url} className="affix-link">
                 <h2 className="affix-title"> {affix.name} </h2>
             </a>
             <div className='affix-container'>
-                <img className='affix-img' src={getImageUrl(affix.name)} alt={affix.name} />
-                <p className={affix.name + ' affix-description'}>{affix.description}</p>
+                <Tippy
+                    placement='bottom'
+                    content={<p className='tippyZ'>{affix.description}</p>}
+                >
+                    <img className='affix-img' src={getImageUrl(affix.name)} alt={affix.name} />
+                </Tippy>
             </div>
         </li>
     )
@@ -110,6 +131,7 @@ function Affixes() {
                     <ul> {displayAffixes} </ul>
                 </div> : "Loading..."
             }
+            {/* <button onClick={getNextAffixes}> ===> </button> */}
         </div>
 
     )

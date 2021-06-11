@@ -7,13 +7,13 @@ function Items() {
     // want to sort into categories (pre-key buffs, during-key consumables?)
 
     const itemCard = (cat) => cat.map((item, index) =>
-        <div key={index} className='resource-card'>
+        <div key={index} className='card'>
             <a href={item['wowhead-link']}>{item.itemName}</a>
-            <div>{item.category}</div>
-            <div className='item-description'>{item.description}</div>
-            <div className='item-usage'>{item.usage}</div>
-            { item.requirements.length !== 0 ? <div>Requires: {item.requirements}</div> : null }
-            { item.backfire ? <div>Backfire!: {item.backfire}</div> : null}
+            {/* <p>{item.category}</p> */}
+            <p className='item-description'>{item.description}</p>
+            <p className='item-usage'>{item.usage}</p>
+            { item.requirements.length !== 0 ? <p id='requirements'>Requires: {item.requirements}</p> : null }
+            { item.backfire ? <p>Backfire!: {item.backfire}</p> : null}
         </div>
     )
 
@@ -21,15 +21,18 @@ function Items() {
     const potions = itemCard(alchemy.filter((item) => item.category === 'Potion'));
 
     return (
-        <div>
-            <div id='engineering-items'>
-                <div id='belt-tinker'>
-                    Belt Tinkers
-                    {beltTinkers}
-                </div>
+        <div className='section'>
+            <div className='section-header'>
+                <h1>Items and Consumables</h1>
+                {/* <p>Impt</p> */}
             </div>
-            <div id='consumables'>
-                Alchemy
+
+            <div id='engineering-items' className='resources first'>
+                <h2>Engineering</h2>
+                    {beltTinkers}
+            </div>
+            <div id='consumables' className='resources second'>
+                <h2>Alchemy</h2>
                 <div id='potions'>
                     {potions}
                 </div>

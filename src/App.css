@@ -50,7 +50,16 @@ table {
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Nunito&family=Poppins&family=Work+Sans&family=Roboto&display=swap');
 
 body {
-	background-color: #e0e0e0;
+	/* background-color: #e0e0e0; */
+	background-color: var(--main-bg-color);
+	font-family: 'Roboto', sans-serif;
+	min-width: 450px;
+	color: white;
+}
+
+:root {
+  --material-red: #f44336;
+	--main-bg-color: #090909;
 }
 
 /* Header  */
@@ -62,67 +71,131 @@ body {
   align-items: center;
 	height: 4rem;
 	/* background-color: rgba(30, 13, 30, 0.08); */
-	background-color: #424242;
+	background-color: #212121;
 	padding: 0 1.5rem;
-	font-family: 'Roboto', sans-serif;
 	color: white;
 	font-size: 20px;
+	position: relative;
 }
 
 #header span {
-	color: red;
+	color: #f44336;
 }
 
-#header nav {
+#nav {
   display: flex;
 }
 
-#header nav a, #header nav div {
+#nav a, #nav div {
   margin: 0 0.4rem;
 	text-decoration: none;
 	/* color: black; */
 	color: white;
 	font-size: 14px;
+	cursor: pointer;
 }
 
-#header nav a:hover {
+#nav a:hover {
 	text-decoration: underline;
 	opacity: 0.8;
 }
 
-#burger-menu {
-	display: none;
-	cursor: pointer;
+
+#mobile-menu {
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #EFFFFA;
+  height: 100vh;
+  text-align: left;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+	transform: translateX(-100%)
+
 }
 
-#burger-menu:hover {
-	color: red;
+#mobile-menu div,
+#mobile-menu a {
+	font-size: 2rem;
+	text-transform: uppercase;
+	padding: 2rem 0;
+	font-weight: bold;
+	letter-spacing: 0.5rem;
+	color: #000;
+	text-decoration: none;
+	transition: color 0.3s linear;
 }
+
+#mobile-menu div:hover,
+#mobile-menu a:hover {
+	color: #343078;
+}
+
+.burger {
+	/* position: absolute; */
+  top: 5%;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.burger:focus {
+	outline: none;
+	background: transparent;
+}
+
+.burger div {
+	width: 2rem;
+	height: 0.25rem;
+	background: #EFFFFA;
+	border-radius: 10px;
+	transition: all 0.3s linear;
+	position: relative;
+	transform-origin: 1px;
+
+}
+
 
 /* Dungeon Menu */
 
-#dungeon-menu {
-	display: none;
-}
 
-#dropdown-dungeon:hover #dungeon-menu {
-	display: flex;
+
+.dungeon-menu {
 	flex-direction: column;
 	position: absolute;
-
+	width: 100%;
+	background: #383838;
+	display: flex;
+	padding: 0 1rem;
+	z-index: 1050;
 }
 
-#dungeon-menu button {
-	background-color: green;
+
+.dungeon-menu div {
+	/* background-color: #aa2e25; */
 	border: none;
 	padding: 0.5rem 0.75rem;
 	color: white;
 	cursor: pointer;
-	opacity: 0.9
+	opacity: 1;
+	width: 20%;
+	font-size: 13px;
 }
 
-#dungeon-menu button:hover {
-	opacity: 1.0;
+.dungeon-menu div:hover {
+	opacity: 0.7;
+	color: var(--material-red)
 }
 
 
@@ -135,17 +208,16 @@ body {
 .affix-display h1 {
 	text-align: center;
 	font-weight: bold;
-	/* font-family: 'Work Sans', sans-serif; */
-	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	margin-bottom: 0.4rem;
+	color: white;
 }
 
 .affix-display h4 {
 	text-align: center;
 	font-weight: bold;
-	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
+	color: darkgrey;
 }
 
 #affixes {
@@ -169,17 +241,19 @@ body {
 	place-items: center;
 	/* border: 1px solid black; */
 	padding: 1rem 0.5rem;
-	font-family: 'Roboto', sans-serif;
 }
 
 .affix-card a {
 	margin-bottom: 0.5rem;
 	text-decoration: none;
+	/* color:#aa2e25; */
+	color: #26C6DA;
 }
 
 .affix-card img {
   border-radius: 50%;
 	display: inline-block;
+	border: 1px solid rgba(255, 255, 255, 0.774);
 }
 
 .affix-card img:hover {
@@ -218,17 +292,21 @@ body {
 	/* font-weight: bold; */
 }
 
+.tippyZ {
+	font-family: 'Roboto', sans-serif;
+}
+
 /* Dungeon */
 
-#wallpaper-container {
+.wallpaper-container {
 	position: relative;
 	text-align: center;
 	color: white;
 	z-index: -1;
-	background-color: #e0e0e0;
+	background-color: #131313;
 }
 
-#dungeon-title {
+.dungeon-title {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -237,34 +315,54 @@ body {
 	font-family: 'Work Sans', sans-serif;
 }
 
-#dungeon-title h4 {
+.dungeon-title h4 {
 	font-size: 20px;
 	color: darkgrey;
 }
 
-#dungeon-wallpaper {
+.dungeon-wallpaper {
 	width: 100%;
 	height: auto;
 	opacity: 90%;
-	filter: brightness(50%)
+	filter: brightness(80%)
 }
 
-#dungeon-info {
+.dungeon-info {
 	display: flex;
 	flex-direction: column;
+	padding: 1rem;
 }
 
-#lust-timing {
+.dungeon-info div {
+	display: flex;
+	flex-direction: column;
+	margin: 0.2rem 0;
+}
+
+.dungeon-info h1 {
+	font-size: 14px;
+	color: var(--material-red)
+}
+
+.dungeon-info {
+	font-size: 13px;
+}
+
+.covenant-bonus p,
+.lust-timing > ul > li {
+	margin-left: 1rem;
+}
+
+/* .lust-timing {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid black;
 	align-items: center;
 }
 
-#lust-timing ul {
+.lust-timing ul {
 	list-style: none;
-	border: 1px solid red;
-}
+} */
 
 /* MDT */
 
@@ -272,10 +370,91 @@ body {
   display: none;
 }
 
+/* Resources */
+
+.section {
+	line-height: 1.3rem;
+}
+
+.section-header {
+	text-align: center;
+	padding: 2rem;
+	font-size: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #090909;
+	color: white;
+}
+
+.section-header p {
+	margin-top: 1rem;
+	text-align: center;
+	font-size: 13px;
+	width: 70%;
+}
+
+.resources {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 1rem;
+}
+
+.resources h2 {
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.first {
+	background-color: #131313;
+	color: white;
+}
+
+.second {
+	background-color: #090909;
+	color: white;
+}
+
+.card {
+	margin: 0.2rem;
+}
+
+.card a {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	color: #d7373d;
+}
+
+.card a:hover {
+
+	color: var(--material-red);
+}
+
+.card p {
+	font-size: 13px;
+}
+
+#requirements {
+	font-style: italic;
+	color: darkgrey;
+}
+
+/* Media queries */
+
+@media (min-width: 675px) {
+	#mobile-menu { display: none }
+	.burger { display: none }
+}
+
 
 @media only screen and (max-width: 675px) {
-	#dungeon-title h4 { display: none }
-	#dungeon-title h1 { font-size: 26px }
-	#header nav { display: none }
+	.dungeon-title h4 { display: none }
+	.dungeon-title h1 { font-size: 26px }
+	#header #nav { display: none }
 	#burger-menu { display: block }
+	#mobile-menu { width: 60%; z-index: 1050; }
+	.burger {z-index: 1050;}
 }
+
