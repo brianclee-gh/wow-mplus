@@ -7,7 +7,7 @@ import 'tippy.js/dist/tippy.css';
 
 function Affixes() {
 
-    const [week, setWeek] = useState();
+    // const [week, setWeek] = useState();
     const [affixes, setAffixes] = useState([]);
     const [affixIDs, setAffixIDs] = useState([]);
     const componentIsMounted = useRef(true);
@@ -92,8 +92,6 @@ function Affixes() {
         return imgUrl[0].src;
     }
 
-
-
     const getNextAffixes = () => {
 
         let currentWeek;
@@ -131,7 +129,7 @@ function Affixes() {
                     <ul> {displayAffixes} </ul>
                 </div> : "Loading..."
             }
-            {/* <button onClick={getNextAffixes}> ===> </button> */}
+            {/* <button onClick={getNextAffixes}> here </button> */}
         </div>
 
     )

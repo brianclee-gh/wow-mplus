@@ -179,6 +179,7 @@ body {
 	display: flex;
 	padding: 0 1rem;
 	z-index: 1050;
+	transition: all 0.3s;
 }
 
 

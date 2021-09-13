@@ -60,6 +60,10 @@ const images = [
         src: '../public/images/affixes/Volcanic.jpg',
         title: 'Volcanic'
     },
+    {
+        src: '../public/images/affixes/Tormented.jpg',
+        title: 'Tormented'
+    }
 
 ];
 
