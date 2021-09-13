@@ -8,6 +8,8 @@ A World of Warcraft website displaying useful information for M+ Keystone Dungeo
 
 An in-depth paragraph about your project and overview of use.
 
+![Alt text](/screenshots/affixes.png?raw=true "Affixes Page")
+
 ## Getting Started
 
 ### Installing
